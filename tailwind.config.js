@@ -19,6 +19,10 @@ export default {
       fontFamily: {
         spacegrotesk: ["spacegrotesk", "sans-serif"],
       },
+      boxShadow: {
+        "thick-black": "0px 10px 0px #000000",
+        "thick-purple": "0px 10px 0px #5c2dd5",
+      },
     },
   },
   plugins: [],

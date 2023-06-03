@@ -2,7 +2,7 @@ import IconCheck from "../assets/images/icon-check.svg";
 
 const Rules = () => {
   return (
-    <div className="bg-white h-[537px] w-[480px] flex flex-col items-center mt-[182px]  gap-y-2 rounded-[40px] border-[3px] border-black thick-shadow">
+    <div className="bg-white h-[537px] w-[480px] flex flex-col items-center mt-[182px]  gap-y-2 rounded-[40px] border-[3px] border-black shadow-thick-black">
       <div className="text-lg font-bold mt-[30px] mb-[29px]">RULES</div>
       <div className="flex flex-col px-[34px] ">
         <div className="text-purple text-sm font-bold font-spacegrotesk mb-[16px]">
@@ -29,7 +29,7 @@ const Rules = () => {
           </div>
           <div className="text-xs font-spacegrotesk opacity-[0.66]">
             Players must alternate turns, and only one disc can be dropped in
-            each turn.{" "}
+            each turn.
           </div>
         </div>
         <div className="flex flex-row gap-x-[17px] mb-[10px]">
