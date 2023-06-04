@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import IconCheck from "../assets/images/icon-check.svg";
 
 const Rules = () => {
@@ -48,11 +49,9 @@ const Rules = () => {
             The starter of the previous game goes second on the next game.
           </div>
         </div>
-        <img
-          className="w-[64px] h-[64px] self-center object-bottom "
-          src={IconCheck}
-          alt=""
-        />
+        <Link to="/" className="self-center object-bottom ">
+          <img className="w-[64px] h-[64px] " src={IconCheck} alt="" />
+        </Link>
       </div>
     </div>
   );
