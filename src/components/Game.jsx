@@ -25,11 +25,11 @@ const Game = () => {
       </div>
       <div className="z-50 flex flex-col relative">
         <div className="flex w-[632px] justify-between mb-[51px]">
-          <div className="font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[86px] h-[39px]">
+          <div className="font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[86px] h-[39px] hover:bg-coral-pink">
             <div>MENU</div>
           </div>
           <img src={Logo} alt="" />
-          <div className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[108px] h-[39px]">
+          <div className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[108px] h-[39px] hover:bg-coral-pink">
             <div>RESTART</div>
           </div>
         </div>
