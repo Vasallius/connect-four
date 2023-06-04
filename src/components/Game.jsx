@@ -1,3 +1,7 @@
+import { Marker } from "./Marker";
+import { TurnIndicator } from "./TurnIndicator";
+import { Board } from "./Board";
+import { ScoreCard } from "./ScoreCard";
 import Logo from "../assets/images/logo.svg";
 import PlayerOne from "../assets/images/player-one.svg";
 import PlayerTwo from "../assets/images/player-two.svg";
@@ -7,12 +11,6 @@ import MarkerRed from "../assets/images/marker-red.svg";
 import TurnBackgroundRed from "../assets/images/turn-background-red.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import Popup from "reactjs-popup";
-// const PopupExample = () => (
-//   <Popup trigger={<button> Trigger</button>} position="right center">
-//     <div>Popup content here !!</div>
-//   </Popup>
-// );
 
 const Game = () => {
   const [isPaused, togglePause] = useState(false);
@@ -58,21 +56,8 @@ const Game = () => {
           isPaused ? "opacity-50" : ""
         } bg-purple w-screen flex gap-x-[60px] items-center justify-center relative`}
       >
-        <div className=" rounded-[20px] bg-white w-[141px] h-[160px] border-[3px] border-black shadow-thick-black">
-          <div className=" flex flex-col items-center relative">
-            <img
-              className=" w-[54px] h-[59px] absolute -top-[27px] 
-                "
-              src={PlayerOne}
-              alt=""
-            />
-            <div className="text-sm font-spacegrotesk font-bold mt-[46px]">
-              PLAYER 1
-            </div>
-            <div className="text-lg font-spacegrotesk font-bold">0</div>
-          </div>
-        </div>
-        <div className="z-40 flex flex-col relative">
+        <ScoreCard img={PlayerOne} player="PLAYER 1" />
+        <div className="z-40 flex flex-col">
           <div className="flex w-[632px] justify-between mb-[12px] relative">
             <button
               onClick={menuClick}
@@ -85,39 +70,17 @@ const Game = () => {
               <div>RESTART</div>
             </div>
           </div>
-          <img className="ml-[38px] w-[32px] h-[36px]" src={MarkerRed} alt="" />
-          <div className="relative flex justify-center">
-            <img className="absolute" src={LargeWhiteBoard} alt="" />
-            <img src={LargeBlackBoard} alt="" />
-          </div>
-          <div className="flex flex-col items-center justify-center relative  -top-[16px]">
-            <div className="z-50 text-white font-spacegrotesk text-xs font-bold">
-              PLAYER 1&apos;S TURN
-            </div>
-            <div className="z-50 text-white font-spacegrotesk text-lg font-bold">
-              30s
-            </div>
-            <img
-              className="w-[191px] h-[150px] absolute -top-[37px]"
-              src={TurnBackgroundRed}
-              alt=""
-            />
-          </div>
+          <Marker MarkerRed={MarkerRed} />
+          <Board
+            className="z-40"
+            WhiteBoard={LargeWhiteBoard}
+            BlackBoard={LargeBlackBoard}
+          />
+          <TurnIndicator TurnBackgroundRed={TurnBackgroundRed} />
         </div>
-        <div className="rounded-[20px] bg-white w-[141px] h-[160px] border-[3px] border-black shadow-thick-black">
-          <div className="flex flex-col items-center relative">
-            <img
-              className="w-[54px] h-[59px] absolute -top-[27px] 
-                "
-              src={PlayerTwo}
-              alt=""
-            />
-            <div className="text-sm font-spacegrotesk font-bold mt-[46px]">
-              PLAYER 2
-            </div>
-            <div className="text-lg font-spacegrotesk font-bold">0</div>
-          </div>
-        </div>
+
+        <ScoreCard img={PlayerTwo} player="PLAYER 2" />
+
         <div className="z-0 rounded-t-[60px] h-[200px] w-screen bg-iris absolute bottom-0"></div>
       </div>
     </>
