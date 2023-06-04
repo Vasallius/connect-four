@@ -1,5 +1,6 @@
 import Logo from "../assets/images/logo.svg";
 import PlayervsPlayer from "../assets/images/player-vs-player.svg";
+import { Link } from "react-router-dom";
 
 const MainMenu = () => {
   return (
@@ -11,9 +12,11 @@ const MainMenu = () => {
         </div>
         <img className="" src={PlayervsPlayer} alt="" />
       </div>
-      <div className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[60px]">
-        <div className="text-md font-spacegrotesk font-bold ">GAME RULES</div>
-      </div>
+      <Link to="/rules">
+        <div className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[60px]">
+          <div className="text-md font-spacegrotesk font-bold ">GAME RULES</div>
+        </div>
+      </Link>
     </div>
   );
 };
