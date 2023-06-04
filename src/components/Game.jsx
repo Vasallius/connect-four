@@ -3,6 +3,7 @@ import PlayerOne from "../assets/images/player-one.svg";
 import PlayerTwo from "../assets/images/player-two.svg";
 import LargeWhiteBoard from "../assets/images/board-layer-white-large.svg";
 import LargeBlackBoard from "../assets/images/board-layer-black-large.svg";
+import MarkerRed from "../assets/images/marker-red.svg";
 
 const Game = () => {
   return (
@@ -31,6 +32,7 @@ const Game = () => {
             <div>RESTART</div>
           </div>
         </div>
+        <img className="ml-[38px] w-[32px] h-[36px]" src={MarkerRed} alt="" />
         <div>
           <img className="absolute" src={LargeWhiteBoard} alt="" />
           <img src={LargeBlackBoard} alt="" />
