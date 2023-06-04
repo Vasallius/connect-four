@@ -17,7 +17,7 @@ const MainMenu = () => {
 
       <Link to="/rules">
         <div className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[60px] hover:border-iris hover:shadow-thick-purple">
-          <div className="text-md font-spacegrotesk font-bold hover:border-iris hover:shadow-thick-purple ">
+          <div className="text-md font-spacegrotesk font-bold hover:border-iris  ">
             GAME RULES
           </div>
         </div>
