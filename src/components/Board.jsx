@@ -4,58 +4,21 @@ import CounterRedLarge from "../assets/images/counter-red-large.svg";
 import { Marker } from "./Marker";
 import MarkerYellow from "../assets/images/marker-yellow.svg";
 import MarkerRed from "../assets/images/marker-red.svg";
-import { useState } from "react";
 
 /* eslint-disable react/prop-types */
-export function Board({ WhiteBoard, BlackBoard }) {
-  const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
-  const [board, setBoard] = useState([[], [], [], [], [], [], []]);
-  const [markers, setmarkers] = useState([]);
-  const [turn, setTurn] = useState("red");
+export function Board({
+  WhiteBoard,
+  BlackBoard,
+  markerPosition,
 
-  function handleMouseMove(event) {
-    const { offsetX, offsetY } = event.nativeEvent;
-    if (offsetX < 632 - 32) {
-      setMarkerPosition({ x: offsetX, y: offsetY });
-    }
-  }
-
-  function handleClick(event) {
-    let coords = [20, 108, 196, 284, 372, 460, 548];
-
-    const { offsetX } = event.nativeEvent;
-    for (let i = 0; i < coords.length; i++) {
-      if (offsetX < coords[i] + 64) {
-        const colIndex = i;
-        const rowIndex = 5 - board[i].length;
-        if (colIndex >= 0 && rowIndex >= 0) {
-          if (turn === "red") {
-            setTurn("yellow");
-          } else {
-            setTurn("red");
-          }
-          let updatedMarkers = [...markers];
-          updatedMarkers.push({
-            x: coords[colIndex],
-            y: coords[rowIndex],
-            color: turn,
-          });
-          setmarkers(updatedMarkers);
-        }
-        let updatedBoard = [...board];
-        let col = updatedBoard[i];
-        if (col.length < 6) {
-          col.push("marker");
-          setBoard(updatedBoard);
-        }
-        break; // Exit the loop after finding the first matching index
-      }
-    }
-  }
-
+  markers,
+  turn,
+  handleMouseMove,
+  handleClick,
+}) {
   return (
     <div
-      className="relative  "
+      className="relative"
       onClick={handleClick}
       onMouseMove={handleMouseMove}
     >

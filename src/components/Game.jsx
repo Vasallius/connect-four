@@ -1,12 +1,12 @@
-import { TurnIndicator } from "./TurnIndicator";
-import { Board } from "./Board";
+/* eslint-disable react/prop-types */
+
+import { BoardHolder } from "./BoardHolder";
 import { ScoreCard } from "./ScoreCard";
 import Logo from "../assets/images/logo.svg";
 import PlayerOne from "../assets/images/player-one.svg";
 import PlayerTwo from "../assets/images/player-two.svg";
 import LargeWhiteBoard from "../assets/images/board-layer-white-large.svg";
 import LargeBlackBoard from "../assets/images/board-layer-black-large.svg";
-import TurnBackgroundRed from "../assets/images/turn-background-red.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -67,15 +67,10 @@ const Game = () => {
               <div>RESTART</div>
             </div>
           </div>
-          <div>
-            <Board
-              className="z-40"
-              WhiteBoard={LargeWhiteBoard}
-              BlackBoard={LargeBlackBoard}
-            />
-          </div>
-
-          <TurnIndicator TurnBackgroundRed={TurnBackgroundRed} />
+          <BoardHolder
+            WhiteBoard={LargeWhiteBoard}
+            BlackBoard={LargeBlackBoard}
+          />
         </div>
 
         <ScoreCard img={PlayerTwo} player="PLAYER 2" />
