@@ -24,14 +24,10 @@ export function Board({ WhiteBoard, BlackBoard }) {
     let coords = [20, 108, 196, 284, 372, 460, 548];
 
     const { offsetX } = event.nativeEvent;
-    // console.log(`Clicked at ${offsetX}, ${offsetY}`);
     for (let i = 0; i < coords.length; i++) {
       if (offsetX < coords[i] + 64) {
         const colIndex = i;
         const rowIndex = 5 - board[i].length;
-        // console.log("Column Index:", colIndex);
-        // console.log("Row Index:", rowIndex);
-
         if (colIndex >= 0 && rowIndex >= 0) {
           if (turn === "red") {
             setTurn("yellow");
@@ -45,7 +41,6 @@ export function Board({ WhiteBoard, BlackBoard }) {
             color: turn,
           });
           setmarkers(updatedMarkers);
-          // console.log(markers)
         }
         let updatedBoard = [...board];
         let col = updatedBoard[i];
@@ -84,9 +79,6 @@ export function Board({ WhiteBoard, BlackBoard }) {
           />
         );
       })}
-
-      {/* <Counter counter={CounterYellowLarge} x={20} y={20} />
-      <Counter counter={CounterYellowLarge} x={20} y={460} /> */}
     </div>
   );
 }
