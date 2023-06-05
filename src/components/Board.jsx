@@ -1,3 +1,4 @@
+import { Counter } from "./Counter";
 import CounterYellowLarge from "../assets/images/counter-yellow-large.svg";
 import CounterRedLarge from "../assets/images/counter-red-large.svg";
 import { Marker } from "./Marker";
@@ -6,7 +7,9 @@ import { useState } from "react";
 
 /* eslint-disable react/prop-types */
 export function Board({ WhiteBoard, BlackBoard }) {
-  const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 }); // Initial position outside the board
+  const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
+  const [board, setBoard] = useState([[], [], [], [], [], [], []]);
+  const [markers, setmarkers] = useState([]);
 
   function handleMouseMove(event) {
     const { offsetX, offsetY } = event.nativeEvent;
@@ -15,21 +18,58 @@ export function Board({ WhiteBoard, BlackBoard }) {
     }
   }
 
+  function handleClick(event) {
+    let coords = [20, 108, 196, 284, 372, 460, 548];
+
+    const { offsetX, offsetY } = event.nativeEvent;
+    // console.log(`Clicked at ${offsetX}, ${offsetY}`);
+    for (let i = 0; i < coords.length; i++) {
+      if (offsetX < coords[i] + 64) {
+        const colIndex = i;
+        const rowIndex = 5 - board[i].length;
+        // console.log("Column Index:", colIndex);
+        // console.log("Row Index:", rowIndex);
+
+        if (colIndex >= 0 && rowIndex >= 0) {
+          console.log(colIndex, rowIndex);
+          let updatedMarkers = [...markers];
+          updatedMarkers.push({ x: coords[colIndex], y: coords[rowIndex] });
+          setmarkers(updatedMarkers);
+          // console.log(markers)
+        }
+        let updatedBoard = [...board];
+        let col = updatedBoard[i];
+        if (col.length < 6) {
+          col.push("marker");
+          setBoard(updatedBoard);
+        }
+        break; // Exit the loop after finding the first matching index
+      }
+    }
+  }
+
   return (
-    <div className="relative  " onMouseMove={handleMouseMove}>
+    <div
+      className="relative  "
+      onClick={handleClick}
+      onMouseMove={handleMouseMove}
+    >
       <Marker MarkerRed={MarkerYellow} x={markerPosition.x} y={-40} />
       <img className="z-30 top-0 absolute" src={WhiteBoard} alt="" />
       <img className="z-10 mt-10" src={BlackBoard} alt="" />
-      <img
+      {/* <img
         className="z-negative absolute top-[108px] left-[460px]"
         src={CounterRedLarge}
-      />
+      /> */}
 
-      <img
-        className="z-negative absolute top-[104px] left-[193px]"
-        src={CounterYellowLarge}
-        alt=""
-      />
+      {markers.map((marker) => {
+        return (
+          <Counter counter={CounterYellowLarge} x={marker.x} y={marker.y} />
+        );
+      })}
+
+      {/* <Counter counter={CounterYellowLarge} x={20} y={20} />
+      <Counter counter={CounterYellowLarge} x={20} y={460} /> */}
     </div>
   );
 }
