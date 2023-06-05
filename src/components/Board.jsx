@@ -23,22 +23,21 @@ export function Board({ WhiteBoard, BlackBoard }) {
   function handleClick(event) {
     let coords = [20, 108, 196, 284, 372, 460, 548];
 
-    const { offsetX, offsetY } = event.nativeEvent;
+    const { offsetX } = event.nativeEvent;
     // console.log(`Clicked at ${offsetX}, ${offsetY}`);
     for (let i = 0; i < coords.length; i++) {
       if (offsetX < coords[i] + 64) {
-        if (turn === "red") {
-          setTurn("yellow");
-        } else {
-          setTurn("red");
-        }
         const colIndex = i;
         const rowIndex = 5 - board[i].length;
         // console.log("Column Index:", colIndex);
         // console.log("Row Index:", rowIndex);
 
         if (colIndex >= 0 && rowIndex >= 0) {
-          console.log(colIndex, rowIndex);
+          if (turn === "red") {
+            setTurn("yellow");
+          } else {
+            setTurn("red");
+          }
           let updatedMarkers = [...markers];
           updatedMarkers.push({
             x: coords[colIndex],
