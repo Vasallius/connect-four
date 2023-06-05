@@ -6,7 +6,6 @@ import PlayerOne from "../assets/images/player-one.svg";
 import PlayerTwo from "../assets/images/player-two.svg";
 import LargeWhiteBoard from "../assets/images/board-layer-white-large.svg";
 import LargeBlackBoard from "../assets/images/board-layer-black-large.svg";
-import MarkerRed from "../assets/images/marker-red.svg";
 import TurnBackgroundRed from "../assets/images/turn-background-red.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";

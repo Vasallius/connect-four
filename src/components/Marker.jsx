@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-
+/* eslint-disable react/prop-types */
 export function Marker({ marker, x, y }) {
   let style = {
     position: "absolute",

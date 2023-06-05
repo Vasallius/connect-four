@@ -72,14 +72,11 @@ export function Board({ WhiteBoard, BlackBoard }) {
       />
       <img className="z-30 top-0 absolute" src={WhiteBoard} alt="" />
       <img className="z-10 mt-10" src={BlackBoard} alt="" />
-      {/* <img
-        className="z-negative absolute top-[108px] left-[460px]"
-        src={CounterRedLarge}
-      /> */}
 
       {markers.map((marker) => {
         return (
           <Counter
+            key={`${marker.x}+${marker.y}`}
             counter={
               marker.color === "red" ? CounterRedLarge : CounterYellowLarge
             }
