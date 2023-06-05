@@ -10,6 +10,7 @@ export function Board({ WhiteBoard, BlackBoard }) {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
   const [board, setBoard] = useState([[], [], [], [], [], [], []]);
   const [markers, setmarkers] = useState([]);
+  const [turn, setTurn] = useState("red");
 
   function handleMouseMove(event) {
     const { offsetX, offsetY } = event.nativeEvent;
@@ -25,6 +26,11 @@ export function Board({ WhiteBoard, BlackBoard }) {
     // console.log(`Clicked at ${offsetX}, ${offsetY}`);
     for (let i = 0; i < coords.length; i++) {
       if (offsetX < coords[i] + 64) {
+        if (turn === "red") {
+          setTurn("yellow");
+        } else {
+          setTurn("red");
+        }
         const colIndex = i;
         const rowIndex = 5 - board[i].length;
         // console.log("Column Index:", colIndex);
@@ -33,7 +39,11 @@ export function Board({ WhiteBoard, BlackBoard }) {
         if (colIndex >= 0 && rowIndex >= 0) {
           console.log(colIndex, rowIndex);
           let updatedMarkers = [...markers];
-          updatedMarkers.push({ x: coords[colIndex], y: coords[rowIndex] });
+          updatedMarkers.push({
+            x: coords[colIndex],
+            y: coords[rowIndex],
+            color: turn,
+          });
           setmarkers(updatedMarkers);
           // console.log(markers)
         }
@@ -64,7 +74,13 @@ export function Board({ WhiteBoard, BlackBoard }) {
 
       {markers.map((marker) => {
         return (
-          <Counter counter={CounterYellowLarge} x={marker.x} y={marker.y} />
+          <Counter
+            counter={
+              marker.color === "red" ? CounterRedLarge : CounterYellowLarge
+            }
+            x={marker.x}
+            y={marker.y}
+          />
         );
       })}
 
