@@ -1,4 +1,3 @@
-import { Marker } from "./Marker";
 import { TurnIndicator } from "./TurnIndicator";
 import { Board } from "./Board";
 import { ScoreCard } from "./ScoreCard";
@@ -16,7 +15,6 @@ const Game = () => {
   const [isPaused, togglePause] = useState(false);
 
   const menuClick = () => {
-    console.log("Test");
     togglePause(!isPaused);
   };
 
@@ -57,8 +55,8 @@ const Game = () => {
         } bg-purple w-screen flex gap-x-[60px] items-center justify-center relative`}
       >
         <ScoreCard img={PlayerOne} player="PLAYER 1" />
-        <div className="z-40 flex flex-col">
-          <div className="flex w-[632px] justify-between mb-[12px] relative">
+        <div className="z-40 flex flex-col relative">
+          <div className="flex w-[632px] justify-between mb-[17px] relative">
             <button
               onClick={menuClick}
               className="font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[86px] h-[39px] hover:bg-coral-pink"
@@ -70,12 +68,14 @@ const Game = () => {
               <div>RESTART</div>
             </div>
           </div>
-          <Marker MarkerRed={MarkerRed} />
-          <Board
-            className="z-40"
-            WhiteBoard={LargeWhiteBoard}
-            BlackBoard={LargeBlackBoard}
-          />
+          <div>
+            <Board
+              className="z-40"
+              WhiteBoard={LargeWhiteBoard}
+              BlackBoard={LargeBlackBoard}
+            />
+          </div>
+
           <TurnIndicator TurnBackgroundRed={TurnBackgroundRed} />
         </div>
 

@@ -1,4 +1,10 @@
-/* eslint-disable react/prop-types */
-export function Marker({ MarkerRed }) {
-  return <img className="ml-[38px] w-[32px] h-[36px]" src={MarkerRed} alt="" />;
+import { useState, useRef } from "react";
+
+export function Marker({ MarkerRed, x, y }) {
+  let style = {
+    position: "absolute",
+    left: x,
+    top: y,
+  };
+  return <img style={style} src={MarkerRed} alt="" />;
 }
