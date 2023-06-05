@@ -2,8 +2,6 @@
 import { Board } from "./Board";
 import { TurnIndicator } from "./TurnIndicator";
 import { useState } from "react";
-import TurnBackgroundRed from "../assets/images/turn-background-red.svg";
-import TurnBackgroundYellow from "../assets/images/turn-background-yellow.svg";
 
 export function BoardHolder({ WhiteBoard, BlackBoard }) {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
