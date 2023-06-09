@@ -33,7 +33,9 @@ export function TurnIndicator() {
       } else {
         setTurn("red");
       }
-      setCounter(30);
+      if (!isPaused) {
+        setCounter(30);
+      }
     }
   }, [counter, isPaused, hasWinner]);
 
