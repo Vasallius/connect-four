@@ -75,7 +75,7 @@ const Game = () => {
       <div
         className={`${
           isPaused ? "opacity-50" : ""
-        } bg-purple w-screen flex gap-x-[60px] items-center justify-center relative`}
+        } bg-purple w-screen flex gap-x-[60px] pt-[53px] justify-center relative`}
       >
         <ScoreCard img={PlayerOne} player="PLAYER 1" />
         <div className="z-40 flex flex-col relative">

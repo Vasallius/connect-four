@@ -22,7 +22,7 @@ export function TurnIndicator() {
     }
   }, [counter, isPaused, hasWinner]);
 
-  if (!hasWinner) {
+  if (hasWinner) {
     return (
       <div className="z-50 flex flex-col items-center justify-center relative  -top-[16px]">
         <div
@@ -50,7 +50,7 @@ export function TurnIndicator() {
   } else {
     return (
       <div className="z-50 rounded-[20px] mx-auto bg-white w-[285px]  relative  -top-[53px] h-[160px] border-[3px] border-black shadow-thick-black">
-        <div className=" flex flex-col items-center relative">
+        <div className=" flex flex-col items-center justify-center relative">
           <div className="text-xs font-spacegrotesk font-bold text-black mt-[17px]">
             {turn == "red" ? "PLAYER 1" : "PLAYER 2"}
           </div>
