@@ -17,7 +17,6 @@ export function TurnIndicator() {
     setCounter,
     setWinner,
     setTurn,
-    setScore,
   } = useStore();
 
   useEffect(() => {

@@ -12,6 +12,7 @@ import useStore from "../stores/useStore";
 
 const Game = () => {
   const {
+    turn,
     setMarkers,
     setBoard,
     isPaused,
@@ -20,6 +21,7 @@ const Game = () => {
     setWinner,
     setTurn,
     setScore,
+    hasWinner,
   } = useStore();
 
   const menuClick = () => {
@@ -102,7 +104,15 @@ const Game = () => {
 
         <ScoreCard img={PlayerTwo} player="PLAYER 2" />
 
-        <div className="z-0 rounded-t-[60px] h-[200px] w-screen bg-iris absolute bottom-0"></div>
+        <div
+          className={`z-0 rounded-t-[60px] h-[200px] w-screen ${
+            hasWinner
+              ? turn === "red"
+                ? "bg-coral-pink"
+                : "bg-dandelion"
+              : "bg-iris"
+          } absolute bottom-0`}
+        ></div>
       </div>
     </>
   );
