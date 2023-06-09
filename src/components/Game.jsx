@@ -9,12 +9,19 @@ import LargeWhiteBoard from "../assets/images/board-layer-white-large.svg";
 import LargeBlackBoard from "../assets/images/board-layer-black-large.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useStore from "../stores/useStore";
 
 const Game = () => {
   const [isPaused, togglePause] = useState(false);
+  const { setMarkers, setBoard } = useStore();
 
   const menuClick = () => {
     togglePause(!isPaused);
+  };
+
+  const restartClick = () => {
+    setMarkers([]);
+    setBoard([[], [], [], [], [], [], []]);
   };
 
   return (
@@ -63,9 +70,12 @@ const Game = () => {
               <div>MENU</div>
             </button>
             <img src={Logo} alt="" />
-            <div className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[108px] h-[39px] hover:bg-coral-pink">
+            <button
+              onClick={restartClick}
+              className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[108px] h-[39px] hover:bg-coral-pink"
+            >
               <div>RESTART</div>
-            </div>
+            </button>
           </div>
           <BoardHolder
             WhiteBoard={LargeWhiteBoard}

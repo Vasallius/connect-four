@@ -2,12 +2,11 @@
 import { Board } from "./Board";
 import { TurnIndicator } from "./TurnIndicator";
 import { useState } from "react";
+import useStore from "../stores/useStore";
 
 export function BoardHolder({ WhiteBoard, BlackBoard }) {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
-  const [board, setBoard] = useState([[], [], [], [], [], [], []]);
-  const [markers, setMarkers] = useState([]);
-  const [turn, setTurn] = useState("red");
+  const { board, turn, markers, setTurn, setMarkers, setBoard } = useStore();
 
   function handleMouseMove(event) {
     const { offsetX, offsetY } = event.nativeEvent;
@@ -44,10 +43,11 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
           col.push("marker");
           setBoard(updatedBoard);
         }
-        break; // Exit the loop after finding the first matching index
+        break;
       }
     }
   }
+
   return (
     <>
       <div>
@@ -57,7 +57,6 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
           BlackBoard={BlackBoard}
           markerPosition={markerPosition}
           markers={markers}
-          turn={turn}
           handleMouseMove={handleMouseMove}
           handleClick={handleClick}
         />
