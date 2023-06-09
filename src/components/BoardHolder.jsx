@@ -35,14 +35,19 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
     let len = arr.length;
     while (i < len) {
       if (arr[i] == prev && prev != "empty") {
-        count += 1;
+        if (count == 0) {
+          count += 2;
+        } else {
+          count += 1;
+        }
       } else {
         prev = arr[i];
+        count = 0;
       }
 
       i++;
     }
-    if (count == 3) {
+    if (count == 4) {
       console.log(arr);
       console.log(count);
       console.log("WINNER FOUND");
@@ -135,6 +140,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
             let negdiag = getDiag(board, colIndex, rowIndex, "neg");
             let posdiagWinner = checkColumnWin(posdiag);
             let negdiagWinner = checkColumnWin(negdiag);
+            console.log(colWinner, rowWinner, posdiagWinner, negdiagWinner);
 
             if (
               colWinner == true ||

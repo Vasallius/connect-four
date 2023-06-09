@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import useStore from "../stores/useStore";
 
 const Game = () => {
-  // const [isPaused, togglePause] = useState(false);
   const {
     setMarkers,
     setBoard,
