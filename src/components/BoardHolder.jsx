@@ -32,7 +32,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
     let prev = "";
     let len = arr.length;
     while (i < len) {
-      if (arr[i] == prev && prev != undefined) {
+      if (arr[i] == prev && prev != "empty") {
         count += 1;
       } else {
         prev = arr[i];
@@ -40,8 +40,9 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
 
       i++;
     }
-    console.log(`Count : ${count}`);
     if (count == 3) {
+      console.log(arr);
+      console.log(count);
       console.log("WINNER FOUND");
       return true;
     } else {
@@ -52,13 +53,58 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
   function checkRowWin(board, row) {
     let arr = [];
     for (let i = 0; i < 7; i++) {
-      try {
+      if (typeof board[i][5 - row] !== "undefined") {
         arr.push(board[i][5 - row]);
-      } catch {
-        arr.push("");
+      } else {
+        arr.push("empty");
       }
     }
     return arr;
+  }
+
+  function getDiag(board, col, row, dir) {
+    let left = [];
+    let right = [];
+    let x = col;
+    let y = row;
+    // So that we don't count the piece twice
+    x -= 1;
+    if (dir == "pos") {
+      y += 1;
+    } else {
+      y -= 1;
+    }
+    while (x != 7 && y != -1 && (y != 6) & (x != -1)) {
+      if (typeof board[x][5 - y] !== "undefined") {
+        left.push(board[x][5 - y]);
+      } else {
+        left.push("empty");
+      }
+      x--;
+      if (dir == "pos") {
+        y++;
+      } else {
+        y--;
+      }
+    }
+    left.reverse();
+
+    x = col;
+    y = row;
+    while (x != 7 && y != -1 && (y != 6) & (x != -1)) {
+      if (typeof board[x][5 - y] !== "undefined") {
+        right.push(board[x][5 - y]);
+      } else {
+        right.push("empty");
+      }
+      x++;
+      if (dir == "pos") {
+        y--;
+      } else {
+        y++;
+      }
+    }
+    return left.concat(right);
   }
 
   function handleClick(event) {
@@ -80,10 +126,17 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
             }
             let colWinner = checkColumnWin(col);
             let rowWinner = checkColumnWin(checkRowWin(updatedBoard, rowIndex));
-            // console.log(rowIndex);
-            // console.log(5 - rowIndex);
-            // console.log(updatedBoard);
-            if (colWinner == true || rowWinner == true) {
+            let posdiag = getDiag(board, colIndex, rowIndex, "pos");
+            let negdiag = getDiag(board, colIndex, rowIndex, "neg");
+            let posdiagWinner = checkColumnWin(posdiag);
+            let negdiagWinner = checkColumnWin(negdiag);
+
+            if (
+              colWinner == true ||
+              rowWinner == true ||
+              posdiagWinner == true ||
+              negdiagWinner == true
+            ) {
               setWinner(true);
             } else {
               if (turn === "red") {
