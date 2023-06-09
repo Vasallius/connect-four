@@ -6,11 +6,20 @@ import useStore from "../stores/useStore";
 import { useEffect } from "react";
 
 export function TurnIndicator() {
-  const turn = useStore((state) => state.turn);
-  const counter = useStore((state) => state.counter);
-  const setCounter = useStore((state) => state.setCounter);
-  const isPaused = useStore((state) => state.isPaused);
-  const hasWinner = useStore((state) => state.hasWinner);
+  const {
+    turn,
+    counter,
+    hasWinner,
+    setMarkers,
+    setBoard,
+    isPaused,
+    togglePause,
+    setCounter,
+    setWinner,
+    setTurn,
+    setScore,
+  } = useStore();
+
   useEffect(() => {
     if (counter > 0 && !isPaused && !hasWinner) {
       const interval = setInterval(() => {
@@ -22,7 +31,20 @@ export function TurnIndicator() {
     }
   }, [counter, isPaused, hasWinner]);
 
-  if (hasWinner) {
+  const playAgain = () => {
+    setMarkers([]);
+    setBoard([[], [], [], [], [], [], []]);
+    if (turn == "red") {
+      setTurn("yellow");
+    } else {
+      setTurn("red");
+    }
+    setCounter(30);
+    setWinner(false);
+    togglePause(false);
+  };
+
+  if (!hasWinner) {
     return (
       <div className="z-50 flex flex-col items-center justify-center relative  -top-[16px]">
         <div
@@ -57,7 +79,10 @@ export function TurnIndicator() {
           <div className="text-lg font-spacegrotesk font-bold -mt-[4px]">
             WINS
           </div>
-          <button className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[130px] h-[39px] hover:bg-coral-pink">
+          <button
+            onClick={playAgain}
+            className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[130px] h-[39px] hover:bg-coral-pink"
+          >
             <div>PLAY AGAIN</div>
           </button>
         </div>
