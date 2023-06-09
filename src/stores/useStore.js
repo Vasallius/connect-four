@@ -5,12 +5,14 @@ const useStore = create((set) => ({
   markers: [],
   board: [[], [], [], [], [], [], []],
   counter: 30,
+  hasWinner: false,
   isPaused: false,
   setTurn: (turn) => set(() => ({ turn: turn })),
   setMarkers: (markers) => set(() => ({ markers: markers })),
   setBoard: (board) => set(() => ({ board: board })),
   setCounter: (counter) => set(() => ({ counter: counter })),
   togglePause: (isPaused) => set(() => ({ isPaused: isPaused })),
+  setWinner: (hasWinner) => set(() => ({ hasWinner: hasWinner })),
 }));
 
 export default useStore;

@@ -12,8 +12,16 @@ import useStore from "../stores/useStore";
 
 const Game = () => {
   // const [isPaused, togglePause] = useState(false);
-  const { setMarkers, setBoard, isPaused, togglePause, setCounter, setTurn } =
-    useStore();
+  const {
+    counter,
+    setMarkers,
+    setBoard,
+    isPaused,
+    togglePause,
+    setCounter,
+    setWinner,
+    setTurn,
+  } = useStore();
 
   const menuClick = () => {
     togglePause(!isPaused);
@@ -25,6 +33,7 @@ const Game = () => {
     setBoard([[], [], [], [], [], [], []]);
     setTurn("red");
     setCounter(30);
+    setWinner(false);
     togglePause(false);
   };
 

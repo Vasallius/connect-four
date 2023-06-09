@@ -10,26 +10,19 @@ export function TurnIndicator() {
   const setTurn = useStore((state) => state.setTurn);
   const counter = useStore((state) => state.counter);
   const setCounter = useStore((state) => state.setCounter);
+  const setWinner = useStore((state) => state.setWinner);
   const isPaused = useStore((state) => state.isPaused);
+  const hasWinner = useStore((state) => state.hasWinner);
   useEffect(() => {
-    if (counter > 0 && !isPaused) {
+    if (counter > 0 && !isPaused && !hasWinner) {
       const interval = setInterval(() => {
         setCounter(counter - 1);
-        console.log(counter);
       }, 1000);
-
       return () => clearInterval(interval); // Cleanup the interval when the component unmounts
-    } else {
-      if (!isPaused) {
-        setCounter(30);
-        if (turn === "red") {
-          setTurn("yellow");
-        } else {
-          setTurn("red");
-        }
-      }
+    } else if (hasWinner) {
+      setCounter("WINS");
     }
-  }, [counter, setCounter, isPaused]);
+  }, [counter, isPaused, hasWinner]);
 
   return (
     <div className="z-50 flex flex-col items-center justify-center relative  -top-[16px]">
@@ -45,7 +38,8 @@ export function TurnIndicator() {
           turn === "red" ? "text-white" : "text-black"
         } font-spacegrotesk text-lg font-bold`}
       >
-        {counter}s
+        {counter}
+        {counter == "WINS" ? "" : "s"}
       </div>
       <img
         className="w-[191px] h-[150px] absolute -top-[37px]"
