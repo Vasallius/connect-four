@@ -6,7 +6,8 @@ import useStore from "../stores/useStore";
 
 export function BoardHolder({ WhiteBoard, BlackBoard }) {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
-  const { board, turn, markers, setTurn, setMarkers, setBoard } = useStore();
+  const { board, turn, markers, setTurn, setMarkers, setBoard, setCounter } =
+    useStore();
 
   function handleMouseMove(event) {
     const { offsetX, offsetY } = event.nativeEvent;
@@ -26,8 +27,10 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
         if (colIndex >= 0 && rowIndex >= 0) {
           if (turn === "red") {
             setTurn("yellow");
+            setCounter(30);
           } else {
             setTurn("red");
+            setCounter(30);
           }
           let updatedMarkers = [...markers];
           updatedMarkers.push({
