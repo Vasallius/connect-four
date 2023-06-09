@@ -11,11 +11,11 @@ export function Board({
   WhiteBoard,
   BlackBoard,
   markerPosition,
-  markers,
   handleMouseMove,
   handleClick,
 }) {
   const turn = useStore((state) => state.turn);
+  const markers = useStore((state) => state.markers);
   return (
     <>
       <div

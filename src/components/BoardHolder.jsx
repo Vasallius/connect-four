@@ -56,7 +56,6 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
           WhiteBoard={WhiteBoard}
           BlackBoard={BlackBoard}
           markerPosition={markerPosition}
-          markers={markers}
           handleMouseMove={handleMouseMove}
           handleClick={handleClick}
         />
