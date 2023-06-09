@@ -27,6 +27,13 @@ export function TurnIndicator() {
       return () => clearInterval(interval); // Cleanup the interval when the component unmounts
     } else if (hasWinner) {
       setCounter("WINS");
+    } else {
+      if (turn == "red") {
+        setTurn("yellow");
+      } else {
+        setTurn("red");
+      }
+      setCounter(30);
     }
   }, [counter, isPaused, hasWinner]);
 
