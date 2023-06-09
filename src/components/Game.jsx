@@ -22,6 +22,7 @@ const Game = () => {
   const restartClick = () => {
     setMarkers([]);
     setBoard([[], [], [], [], [], [], []]);
+    togglePause(false);
   };
 
   return (
@@ -42,7 +43,10 @@ const Game = () => {
             CONTINUE GAME
           </div>
         </button>
-        <button className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[27px] hover:border-iris hover:shadow-thick-purple">
+        <button
+          onClick={restartClick}
+          className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[27px] hover:border-iris hover:shadow-thick-purple"
+        >
           <div className="text-md font-spacegrotesk font-bold hover:border-iris  ">
             RESTART
           </div>
