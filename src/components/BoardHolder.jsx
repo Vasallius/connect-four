@@ -8,14 +8,12 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
   const {
     board,
-    counter,
     turn,
     markers,
     setTurn,
     setMarkers,
     setBoard,
     setCounter,
-    togglePause,
     setWinner,
   } = useStore();
 

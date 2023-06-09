@@ -13,7 +13,6 @@ import useStore from "../stores/useStore";
 const Game = () => {
   // const [isPaused, togglePause] = useState(false);
   const {
-    counter,
     setMarkers,
     setBoard,
     isPaused,

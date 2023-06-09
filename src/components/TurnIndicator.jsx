@@ -7,10 +7,8 @@ import { useEffect } from "react";
 
 export function TurnIndicator() {
   const turn = useStore((state) => state.turn);
-  const setTurn = useStore((state) => state.setTurn);
   const counter = useStore((state) => state.counter);
   const setCounter = useStore((state) => state.setCounter);
-  const setWinner = useStore((state) => state.setWinner);
   const isPaused = useStore((state) => state.isPaused);
   const hasWinner = useStore((state) => state.hasWinner);
   useEffect(() => {
