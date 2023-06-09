@@ -51,7 +51,7 @@ export function TurnIndicator() {
             turn === "red" ? "text-white" : "text-black"
           } font-spacegrotesk text-xs font-bold`}
         >
-          PLAYER 1&apos;S TURN
+          {turn == "red" ? "PLAYER 1" : "PLAYER 2"}&apos;S TURN
         </div>
         <div
           className={`z-50 ${
