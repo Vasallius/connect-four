@@ -60,7 +60,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
           handleClick={handleClick}
         />
       </div>
-      <TurnIndicator turn={turn} />
+      <TurnIndicator />
     </>
   );
 }

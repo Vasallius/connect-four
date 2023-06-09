@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import TurnBackgroundRed from "../assets/images/turn-background-red.svg";
 import TurnBackgroundYellow from "../assets/images/turn-background-yellow.svg";
+import useStore from "../stores/useStore";
 
-export function TurnIndicator({ turn }) {
+export function TurnIndicator() {
+  const turn = useStore((state) => state.turn);
+
   return (
     <div className="z-50 flex flex-col items-center justify-center relative  -top-[16px]">
       <div
