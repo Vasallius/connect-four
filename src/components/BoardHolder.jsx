@@ -33,7 +33,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
     let count = 0;
     let prev = "";
     let len = arr.length;
-    while (i < len) {
+    while (i < len && count != 4) {
       if (arr[i] == prev && prev != "empty") {
         if (count == 0) {
           count += 2;
@@ -47,6 +47,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
 
       i++;
     }
+    console.log(count);
     if (count == 4) {
       console.log(arr);
       console.log(count);
@@ -66,6 +67,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
         arr.push("empty");
       }
     }
+    console.log(arr);
     return arr;
   }
 
