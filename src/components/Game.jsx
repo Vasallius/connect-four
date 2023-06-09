@@ -20,6 +20,7 @@ const Game = () => {
     setCounter,
     setWinner,
     setTurn,
+    setScore,
   } = useStore();
 
   const menuClick = () => {
@@ -33,6 +34,8 @@ const Game = () => {
     setTurn("red");
     setCounter(30);
     setWinner(false);
+    setScore(1, 0);
+    setScore(2, 0);
     togglePause(false);
   };
 

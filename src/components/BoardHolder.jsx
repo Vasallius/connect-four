@@ -15,6 +15,10 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
     setBoard,
     setCounter,
     setWinner,
+    hasWinner,
+    setScore,
+    p1score,
+    p2score,
   } = useStore();
 
   function handleMouseMove(event) {
@@ -106,6 +110,9 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
   }
 
   function handleClick(event) {
+    if (hasWinner) {
+      return;
+    }
     let coords = [20, 108, 196, 284, 372, 460, 548];
 
     const { offsetX } = event.nativeEvent;
@@ -136,6 +143,11 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
               negdiagWinner == true
             ) {
               setWinner(true);
+              if (turn == "red") {
+                setScore(1, p1score + 1);
+              } else {
+                setScore(2, p2score + 1);
+              }
             } else {
               if (turn === "red") {
                 setTurn("yellow");
