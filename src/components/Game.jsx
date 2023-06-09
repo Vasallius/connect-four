@@ -7,16 +7,16 @@ import PlayerOne from "../assets/images/player-one.svg";
 import PlayerTwo from "../assets/images/player-two.svg";
 import LargeWhiteBoard from "../assets/images/board-layer-white-large.svg";
 import LargeBlackBoard from "../assets/images/board-layer-black-large.svg";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import useStore from "../stores/useStore";
 
 const Game = () => {
-  const [isPaused, togglePause] = useState(false);
-  const { setMarkers, setBoard } = useStore();
+  // const [isPaused, togglePause] = useState(false);
+  const { setMarkers, setBoard, isPaused, togglePause } = useStore();
 
   const menuClick = () => {
     togglePause(!isPaused);
+    console.log(isPaused);
   };
 
   const restartClick = () => {

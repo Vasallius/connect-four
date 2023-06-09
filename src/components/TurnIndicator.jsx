@@ -10,8 +10,9 @@ export function TurnIndicator() {
   const setTurn = useStore((state) => state.setTurn);
   const counter = useStore((state) => state.counter);
   const setCounter = useStore((state) => state.setCounter);
+  const isPaused = useStore((state) => state.isPaused);
   useEffect(() => {
-    if (counter > 0) {
+    if (counter > 0 && !isPaused) {
       const interval = setInterval(() => {
         setCounter(counter - 1);
         console.log(counter);
@@ -19,14 +20,16 @@ export function TurnIndicator() {
 
       return () => clearInterval(interval); // Cleanup the interval when the component unmounts
     } else {
-      setCounter(30);
+      if (!isPaused) {
+        setCounter(30);
+      }
       if (turn === "red") {
         setTurn("yellow");
       } else {
         setTurn("red");
       }
     }
-  }, [counter, setCounter]);
+  }, [counter, setCounter, isPaused]);
 
   return (
     <div className="z-50 flex flex-col items-center justify-center relative  -top-[16px]">
