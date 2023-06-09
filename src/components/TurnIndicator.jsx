@@ -22,11 +22,11 @@ export function TurnIndicator() {
     } else {
       if (!isPaused) {
         setCounter(30);
-      }
-      if (turn === "red") {
-        setTurn("yellow");
-      } else {
-        setTurn("red");
+        if (turn === "red") {
+          setTurn("yellow");
+        } else {
+          setTurn("red");
+        }
       }
     }
   }, [counter, setCounter, isPaused]);
