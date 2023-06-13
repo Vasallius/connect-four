@@ -11,23 +11,23 @@ export function PauseMenu({ menuClick, restartClick }) {
         onClick={menuClick}
         className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[27px] hover:border-iris hover:shadow-thick-purple"
       >
-        <div className="text-md font-spacegrotesk font-bold hover:border-iris  ">
+        <h2 className="text-md font-spacegrotesk font-bold hover:border-iris  ">
           CONTINUE GAME
-        </div>
+        </h2>
       </button>
       <button
         onClick={restartClick}
         className="flex justify-between bg-white rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[27px] hover:border-iris hover:shadow-thick-purple"
       >
-        <div className="text-md font-spacegrotesk font-bold hover:border-iris  ">
+        <h2 className="text-md font-spacegrotesk font-bold hover:border-iris  ">
           RESTART
-        </div>
+        </h2>
       </button>
       <Link onClick={restartClick} to="/">
         <button className="flex justify-between bg-coral-pink rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[27px] hover:border-iris hover:shadow-thick-purple">
-          <div className="text-md font-spacegrotesk font-bold hover:border-iris  ">
+          <h2 className="text-md font-spacegrotesk font-bold hover:border-iris  ">
             QUIT GAME
-          </div>
+          </h2>
         </button>
       </Link>
     </>
