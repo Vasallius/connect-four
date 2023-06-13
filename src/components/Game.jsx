@@ -57,7 +57,7 @@ const Game = () => {
       >
         <ScoreCard img={PlayerOne} player="PLAYER 1" />
 
-        <main className="z-40 flex flex-col relative">
+        <section className="z-40 flex flex-col relative">
           <Header
             menuClick={menuClick}
             Logo={Logo}
@@ -67,7 +67,7 @@ const Game = () => {
             WhiteBoard={LargeWhiteBoard}
             BlackBoard={LargeBlackBoard}
           />
-        </main>
+        </section>
 
         <ScoreCard img={PlayerTwo} player="PLAYER 2" />
 

@@ -7,14 +7,14 @@ export function Header({ menuClick, Logo, restartClick }) {
         onClick={menuClick}
         className="font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[86px] h-[39px] hover:bg-coral-pink"
       >
-        <div>MENU</div>
+        MENU
       </button>
       <img src={Logo} alt="" />
       <button
         onClick={restartClick}
         className=" font-bold flex items-center justify-center rounded-[20px] bg-iris text-xs font-spacegrotesk text-white w-[108px] h-[39px] hover:bg-coral-pink"
       >
-        <div>RESTART</div>
+        RESTART
       </button>
     </header>
   );
