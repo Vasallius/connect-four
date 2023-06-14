@@ -9,6 +9,11 @@ export default {
       md: ["24px", "31px"],
       lg: ["56px", "71px"],
     },
+    screens: {
+      lg: "1440px",
+      md: "768px",
+      sm: "375px",
+    },
     extend: {
       colors: {
         iris: "#5C2DD5",
