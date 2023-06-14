@@ -17,8 +17,8 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
     setWinner,
     hasWinner,
     setScore,
-    p1score,
     p2score,
+    p1score,
   } = useStore();
 
   function handleMouseMove(event) {
@@ -47,11 +47,7 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
 
       i++;
     }
-    console.log(count);
     if (count == 4) {
-      console.log(arr);
-      console.log(count);
-      console.log("WINNER FOUND");
       return true;
     } else {
       return false;
@@ -67,7 +63,6 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
         arr.push("empty");
       }
     }
-    console.log(arr);
     return arr;
   }
 
@@ -165,10 +160,8 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
                 setCounter(30);
               }
             }
-            // console.log(col);
             setBoard(updatedBoard);
           }
-
           let updatedMarkers = [...markers];
           updatedMarkers.push({
             x: coords[colIndex],
@@ -177,9 +170,6 @@ export function BoardHolder({ WhiteBoard, BlackBoard }) {
           });
           setMarkers(updatedMarkers);
         }
-
-        // Update game board and check for winner
-
         break;
       }
     }
