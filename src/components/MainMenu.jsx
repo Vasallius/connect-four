@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MainMenu = () => {
   return (
-    <main className="bg-purple h-[435px] w-[480px] flex flex-col items-center mt-[203px] md:mt-[295px] lg:mt-[233px] justify-center gap-y-2 rounded-[40px] md:border-[3px] md:border-black md:shadow-thick-black">
+    <main className="bg-purple h-[435px] w-[480px] mx-auto flex flex-col items-center mt-[203px] md:mt-[295px] lg:mt-[233px] justify-center gap-y-2 rounded-[40px] md:border-[3px] md:border-black md:shadow-thick-black">
       <img className="mt-[70px] mb-[79px]" src={Logo} alt="Connect Four Logo" />
       <Link to="/game">
         <button className="flex items-center justify-between bg-dandelion rounded-[20px] p-5 w-[400px] border-[3px] border-black shadow-thick-black mb-[30px] hover:border-iris hover:shadow-thick-purple">
