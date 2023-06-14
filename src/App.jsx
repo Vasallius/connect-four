@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="bg-purple md:bg-iris h-screen flex  justify-center">
+      <div className="bg-purple min-w-[375px] md:bg-iris h-screen flex  justify-center">
         <Routes>
           <Route path="/" element={<MainMenu />} />
           <Route path="/rules" element={<Rules />} />
